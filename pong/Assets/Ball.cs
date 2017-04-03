@@ -1,17 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
-using UnityEngine.UI;
+// using UnityEngine.UI;
 
 public class Ball : MonoBehaviour {
-    private int score = 0; //スコア計算用変数
-    Text text; //Text用変数
+    // private int score = 0; //スコア計算用変数
+    // Text text; //Text用変数
 
     public float speed = 30;
 
     void Start() {
         // Initial Velocity
         GetComponent<Rigidbody2D>().velocity = Vector2.right * speed;
-        text = GetComponent<Text>();
+        // text = GetComponent<Text>();
     }
 
     void OnCollisionEnter2D(Collision2D col) {
@@ -51,6 +51,7 @@ public class Ball : MonoBehaviour {
 
 	    if (col.gameObject.name == "WallLeft") {
 	    	// Update();
+	    	// Left.score += 1;//Add
 	    	GetComponent<Detonator>().Explode();
 	    	GetComponent<Transform>().transform.position = new Vector3(3, 0, 0);
 	    	GetComponent<Rigidbody2D>().velocity = Vector2.right * speed;
@@ -78,8 +79,8 @@ public class Ball : MonoBehaviour {
 	// 	score = 0;
 	// }
 
-	void Update (){
-		text.text = "Score: " + score;
-	}
+	// void Update (){
+	// 	text.text = "Score: " + score;
+	// }
 
 }
